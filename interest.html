@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mortgage Interest Calculator</title>
+</head>
+<body>
+    <h2>Mortgage Monthly Interest Calculator</h2>
+    
+    <p><strong>Loan Principal:</strong> £172,000</p>
+    <p><strong>BoE Bank Rate:</strong> 2.25%</p>
+    <p><strong>Rate over BoE Rate:</strong> 1.49%</p>
+    
+    <p id="result"></p>
+
+    <script>
+        // Assign data to variables
+        let principal = 172000;
+        let boeRate = 2.25; // Bank of England rate (% per annum)
+        let rateOverBoe = 1.49; // Additional rate over BoE rate (% per annum)
+        
+        // Calculate total annual interest rate
+        let totalAnnualRate = boeRate + rateOverBoe;
+        
+        // Calculate annual interest amount
+        let annualInterest = principal * (totalAnnualRate / 100);
+        
+        // Calculate monthly interest (spread equally over 12 months)
+        let interest = annualInterest / 12;
+        
+        // Display the result
+        document.getElementById('result').innerHTML = 
+            `<strong>Monthly Interest Payment: £${interest.toFixed(2)}</strong><br><br>` +
+            `Calculation breakdown:<br>` +
+            `Total annual rate: ${totalAnnualRate.toFixed(2)}%<br>` +
+            `Annual interest: £${annualInterest.toFixed(2)}<br>` +
+            `Monthly interest: £${interest.toFixed(2)}`;
+    </script>
+</body>
+</html>
